@@ -56,8 +56,8 @@
     },
     "Engine.Core/1.0.0": {
       "type": "project",
-      "path": "../Engine.Core/Engine.Core.csproj",
-      "msbuildProject": "../Engine.Core/Engine.Core.csproj"
+      "path": "../../Engine3/Engine.Core/Engine.Core.csproj",
+      "msbuildProject": "../../Engine3/Engine.Core/Engine.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -72,11 +72,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aleks\\projects\\Engine3\\Engine.Rendering\\Engine.Rendering.csproj",
+      "projectUniqueName": "C:\\Users\\aleks\\projects\\Engine3\\Engine.Rendering\\Engine.Rendering\\Engine.Rendering.csproj",
       "projectName": "Engine.Rendering",
-      "projectPath": "C:\\Users\\aleks\\projects\\Engine3\\Engine.Rendering\\Engine.Rendering.csproj",
+      "projectPath": "C:\\Users\\aleks\\projects\\Engine3\\Engine.Rendering\\Engine.Rendering\\Engine.Rendering.csproj",
       "packagesPath": "C:\\Users\\aleks\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aleks\\projects\\Engine3\\Engine.Rendering\\obj\\",
+      "outputPath": "C:\\Users\\aleks\\projects\\Engine3\\Engine.Rendering\\Engine.Rendering\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -98,8 +98,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\aleks\\projects\\Engine3\\Engine.Core\\Engine.Core.csproj": {
-              "projectPath": "C:\\Users\\aleks\\projects\\Engine3\\Engine.Core\\Engine.Core.csproj"
+            "C:\\Users\\aleks\\projects\\Engine3\\Engine3\\Engine.Core\\Engine.Core.csproj": {
+              "projectPath": "C:\\Users\\aleks\\projects\\Engine3\\Engine3\\Engine.Core\\Engine.Core.csproj"
             }
           }
         }
