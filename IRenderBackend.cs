@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using Engine.Rendering.Cameras;
 using Engine.Rendering.Textures;
 
 namespace Engine.Rendering;
@@ -13,4 +14,5 @@ public interface IRenderBackend
     void End();
     void Render();
     void DrawTexture(ITexture texture, Vector2 position);
+    void SetCamera(ICamera? camera);
 }

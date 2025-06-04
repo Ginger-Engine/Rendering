@@ -4,11 +4,17 @@ using Engine.Core.Transform;
 
 namespace Engine.Rendering.Cameras;
 
-public class CameraBehaviour(ICameraCreator cameraCreator) : IEntityBehaviour
+public class CameraBehaviour(ICameraCreator cameraCreator, CameraCollection cameraCollection) : IEntityBehaviour
 {
     public void OnStart(Entity entity)
     {
-        entity.Modify((ref CameraComponent c) => c.Camera = cameraCreator.Create());
+        entity.Modify((ref CameraComponent c) =>
+        {
+            c.Camera = cameraCreator.Create();
+            c.Camera.Layers = c.Layers;
+            c.Camera.Zoom = 1;
+            cameraCollection.Add(c.Camera);
+        });
         entity.SubscribeComponentChange<CameraComponent>((newValue, oldValue) => HandleChanges(entity));
         entity.SubscribeComponentChange<WorldTransformComponent>((newValue, oldValue) => HandleChanges(entity));
     }

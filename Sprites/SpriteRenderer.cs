@@ -42,6 +42,7 @@ public class SpriteRenderer : IEntityBehaviour
         {
             Texture = spriteComponent.Texture,
             Position = transformComponent.Position,
+            Layer = renderableComponent.Layer,
         };
         
         entity.ApplyComponent(renderableComponent);

@@ -2,5 +2,5 @@
 
 public struct RenderingConfig
 {
-    public List<Layer> layers;
+    public string[] layers;
 }

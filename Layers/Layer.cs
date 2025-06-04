@@ -1,4 +1,4 @@
-﻿namespace Engine.Rendering;
+﻿namespace Engine.Rendering.Layers;
 
 public class Layer
 {
