@@ -15,10 +15,21 @@
           }
         }
       },
+      "DiContainer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/DiContainer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DiContainer.dll": {}
+        }
+      },
       "Engine.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
+          "DiContainer": "1.0.0",
           "YamlDotNet": "16.3.0"
         },
         "compile": {
@@ -53,6 +64,11 @@
         "yamldotnet.16.3.0.nupkg.sha512",
         "yamldotnet.nuspec"
       ]
+    },
+    "DiContainer/1.0.0": {
+      "type": "project",
+      "path": "../DiContainer/DiContainer.csproj",
+      "msbuildProject": "../DiContainer/DiContainer.csproj"
     },
     "Engine.Core/1.0.0": {
       "type": "project",

@@ -1,9 +1,9 @@
 ﻿using Engine.Core;
-using Engine.Core.Di;
 using Engine.Core.Serialization;
 using Engine.Rendering.Sprites;
 using Engine.Rendering.Textures;
 using Engine.Rendering.TypeResolvers;
+using GignerEngine.DiContainer;
 
 namespace Engine.Rendering;
 
