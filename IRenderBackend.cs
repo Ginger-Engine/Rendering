@@ -13,6 +13,6 @@ public interface IRenderBackend
     void Start();
     void End();
     void Render();
-    void DrawTexture(ITexture texture, Vector2 position);
+    void DrawTexture(ITexture texture, Vector2 position, float rotation, Vector2 scale);
     void SetCamera(ICamera? camera);
 }

@@ -23,5 +23,8 @@ public class CameraBehaviour(ICameraCreator cameraCreator, CameraCollection came
     {
         var cameraComponent = entity.GetComponent<CameraComponent>();
         var transform = entity.GetComponent<WorldTransformComponent>();
+        var camera = cameraComponent.Camera;
+        camera.Position = transform.Position;
+        camera.Rotation = transform.Rotation;
     }
 }

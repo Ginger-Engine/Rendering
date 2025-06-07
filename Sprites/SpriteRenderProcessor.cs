@@ -4,7 +4,7 @@ public class SpriteRenderProcessor(IRenderBackend renderBackend) : IRenderProces
 {
     public void Process(Sprite sprite)
     {
-        renderBackend.DrawTexture(sprite.Texture, sprite.Position);
+        renderBackend.DrawTexture(sprite.Texture, sprite.Position, sprite.Rotation, sprite.Scale);
     }
 
     public void Process(object obj)
