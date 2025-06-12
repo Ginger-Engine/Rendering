@@ -5,6 +5,8 @@ using Engine.Rendering.Layers;
 using Engine.Rendering.Sprites;
 using Engine.Rendering.Textures;
 using Engine.Rendering.TypeResolvers;
+using Engine.Rendering.Ui;
+using Engine.Rendering.Ui.Label;
 using GignerEngine.DiContainer;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
@@ -20,6 +22,8 @@ public class RenderingBundle : IBundle
         builder.Bind<RenderQueue>();
         builder.Bind<SpriteRenderer>();
         builder.Bind<SpriteRenderProcessor>();
+        builder.Bind<LabelRenderer>();
+        builder.Bind<LabelRenderProcessor>();
         builder.Bind<LayerManager>();
         builder.Bind<ITypeResolver<Layer>>().From<LayerLoader>();
         builder.Bind<CameraCollection>();
@@ -36,9 +40,15 @@ public class RenderingBundle : IBundle
         
         var layerManager = diContainer.Resolve<LayerManager>();
         
-        foreach (var layer in config.layers)
+        foreach (var layer in config.Layers)
         {
             layerManager.RegisterLayer(layer);
+        }
+
+        var fontManager = diContainer.Resolve<IFontManager>();
+        foreach (var fontDescription in config.Fonts)
+        {
+            fontManager.Register(fontDescription);
         }
     }
 }

@@ -1,6 +1,9 @@
-﻿namespace Engine.Rendering;
+﻿using Engine.Rendering.Ui;
+
+namespace Engine.Rendering;
 
 public struct RenderingConfig
 {
-    public string[] layers;
+    public string[] Layers;
+    public FontDescription[] Fonts;
 }

@@ -26,5 +26,6 @@ public class CameraBehaviour(ICameraCreator cameraCreator, CameraCollection came
         var camera = cameraComponent.Camera;
         camera.Position = transform.Position;
         camera.Rotation = transform.Rotation;
+        camera.CameraType = cameraComponent.CameraType;
     }
 }
