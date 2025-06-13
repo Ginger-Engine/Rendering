@@ -17,17 +17,14 @@ public class RenderingBundle : IBundle
 {
     public void InstallBindings(DiBuilder builder)
     {
-        builder.Bind<RenderLoopBehaviour>();
         builder.Bind<ITypeResolver<ITexture>>().From<ResourceResolver<ITexture>>();
         builder.Bind<RenderQueue>();
-        builder.Bind<SpriteRenderer>();
         builder.Bind<SpriteRenderProcessor>();
-        builder.Bind<LabelRenderer>();
         builder.Bind<LabelRenderProcessor>();
         builder.Bind<LayerManager>();
         builder.Bind<ITypeResolver<Layer>>().From<LayerLoader>();
         builder.Bind<CameraCollection>();
-        builder.Bind<CameraBehaviour>();
+        builder.Bind<RenderingStage>();
     }
 
     public void Configure(string c, IReadonlyDiContainer diContainer)

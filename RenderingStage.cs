@@ -1,15 +1,16 @@
-﻿using Engine.Core.Scenes;
-using Engine.Rendering.Cameras;
-using Engine.Rendering.Layers;
+﻿using Engine.Core.Stages;
 
 namespace Engine.Rendering;
 
-public class RenderLoopBehaviour(
+public class RenderingStage(
     RenderQueue renderQueue,
     IEnumerable<IRenderProcessor> processors,
     IRenderBackend renderBackend,
-    CameraCollection cameraCollection) : ISceneBehaviour
+    CameraCollection cameraCollection) : IStage
 {
+    public Type[] Before { get; set; } = [];
+    public Type[] After { get; set; } = [typeof(LogicStage)];
+ 
     private Dictionary<Type, IRenderProcessor> _processors = processors.ToDictionary(
         processor => processor
             .GetType()
@@ -19,12 +20,12 @@ public class RenderLoopBehaviour(
         processor => processor
     );
 
-    public void OnStart()
+    public void Start()
     {
         renderBackend.Init();
     }
 
-    public void OnUpdate(float dt)
+    public void Update(float dt)
     {
         if (renderQueue.Renderables.Count == 0)
         {
@@ -51,11 +52,6 @@ public class RenderLoopBehaviour(
         }
         renderQueue.Renderables.Clear();
 
-        renderBackend.End();
-    }
-
-    public void OnDestroy()
-    {
-        renderBackend.Shutdown();
+        renderBackend.End();   
     }
 }
