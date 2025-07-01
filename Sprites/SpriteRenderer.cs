@@ -20,7 +20,7 @@ public class SpriteRenderer : IEntityBehaviour
         {
             UpdateRenderable(entity);
         });
-        entity.SubscribeComponentChange<TransformComponent>((value, oldValue) =>
+        entity.SubscribeComponentChange<WorldTransformComponent>((value, oldValue) =>
         {
             UpdateRenderable(entity);
         });
@@ -40,6 +40,7 @@ public class SpriteRenderer : IEntityBehaviour
 
         renderableComponent.Renderable = new Sprite
         {
+            Entity = entity,
             Texture = spriteComponent.Texture,
             Position = transformComponent.Position,
             Rotation = transformComponent.Rotation,

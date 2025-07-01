@@ -7,6 +7,7 @@ using Engine.Rendering.Textures;
 using Engine.Rendering.TypeResolvers;
 using Engine.Rendering.Ui;
 using Engine.Rendering.Ui.Label;
+using Engine.Rendering.Windows;
 using GignerEngine.DiContainer;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
@@ -29,7 +30,6 @@ public class RenderingBundle : IBundle
 
     public void Configure(string c, IReadonlyDiContainer diContainer)
     {
-        
         var deserializer = new DeserializerBuilder()
             .WithNamingConvention(CamelCaseNamingConvention.Instance)
             .Build();
@@ -47,5 +47,9 @@ public class RenderingBundle : IBundle
         {
             fontManager.Register(fontDescription);
         }
+        
+        var window = diContainer.Resolve<IWindow>();
+        window.SetSize(config.WindowSize);
+        window.Title = config.WindowTitle;
     }
 }
