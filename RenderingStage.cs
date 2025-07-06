@@ -8,6 +8,7 @@ public class RenderingStage(
     IRenderBackend renderBackend,
     CameraCollection cameraCollection) : IStage
 {
+    public Action<IRenderBackend>? OnAfterRenderEvent;
     public Type[] Before { get; set; } = [];
     public Type[] After { get; set; } = [typeof(LogicStage)];
  
@@ -50,8 +51,10 @@ public class RenderingStage(
                 renderBackend.SetCamera(null);
             }
         }
+        renderBackend.SetCamera(cameraCollection[0]);
+        OnAfterRenderEvent?.Invoke(renderBackend);
+        renderBackend.SetCamera(null);
         renderQueue.Renderables.Clear();
-
         renderBackend.End();   
     }
 }

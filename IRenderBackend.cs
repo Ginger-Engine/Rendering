@@ -19,4 +19,5 @@ public interface IRenderBackend
     void DrawText(string text, Vector2 position, float rotation, Vector2 scale, float fontSize, Color color, IFont? font = null);
 
     void SetCamera(ICamera? camera);
+    void DrawLine(Vector2 from, Vector2 to,  Color color, float thickness);
 }
