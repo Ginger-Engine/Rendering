@@ -1,12 +1,9 @@
 ﻿using Engine.Core;
 using Engine.Core.Serialization;
-using Engine.Rendering.Cameras;
 using Engine.Rendering.Layers;
-using Engine.Rendering.Sprites;
 using Engine.Rendering.Textures;
 using Engine.Rendering.TypeResolvers;
 using Engine.Rendering.Ui;
-using Engine.Rendering.Ui.Label;
 using Engine.Rendering.Windows;
 using GignerEngine.DiContainer;
 using YamlDotNet.Serialization;
@@ -20,8 +17,6 @@ public class RenderingBundle : IBundle
     {
         builder.Bind<ITypeResolver<ITexture>>().From<ResourceResolver<ITexture>>();
         builder.Bind<RenderQueue>();
-        builder.Bind<SpriteRenderProcessor>();
-        builder.Bind<LabelRenderProcessor>();
         builder.Bind<LayerManager>();
         builder.Bind<ITypeResolver<Layer>>().From<LayerLoader>();
         builder.Bind<CameraCollection>();
