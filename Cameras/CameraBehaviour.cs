@@ -15,17 +15,12 @@ public class CameraBehaviour(ICameraCreator cameraCreator, CameraCollection came
             c.Camera.Zoom = 1;
             cameraCollection.Add(c.Camera);
         });
-        entity.SubscribeComponentChange<CameraComponent>((newValue, oldValue) => HandleChanges(entity));
-        entity.SubscribeComponentChange<WorldTransformComponent>((newValue, oldValue) => HandleChanges(entity));
-    }
-
-    private void HandleChanges(Entity entity)
-    {
-        var cameraComponent = entity.GetComponent<CameraComponent>();
-        var transform = entity.GetComponent<WorldTransformComponent>();
-        var camera = cameraComponent.Camera;
-        camera.Position = transform.Position;
-        camera.Rotation = transform.Rotation;
-        camera.CameraType = cameraComponent.CameraType;
+        entity.SubscribeComponentChange<CameraComponent>(e => e.newValue.Camera.CameraType = e.newValue.CameraType);
+        entity.SubscribeComponentChange<TransformComponent>(e =>
+        {
+            var cameraComponent = entity.GetComponent<CameraComponent>();
+            cameraComponent.Camera.Position = e.newValue.WorldTransform.Position;
+            cameraComponent.Camera.Rotation = e.newValue.WorldTransform.Rotation;
+        });
     }
 }
