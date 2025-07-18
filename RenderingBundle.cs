@@ -1,4 +1,5 @@
-﻿using Engine.Core;
+﻿using System.Drawing;
+using Engine.Core;
 using Engine.Core.Serialization;
 using Engine.Rendering.Layers;
 using Engine.Rendering.Textures;
@@ -19,6 +20,7 @@ public class RenderingBundle : IBundle
         builder.Bind<RenderQueue>();
         builder.Bind<LayerManager>();
         builder.Bind<ITypeResolver<Layer>>().From<LayerLoader>();
+        builder.Bind<ITypeResolver<Color>>().From<ColorTypeResolver>();
         builder.Bind<CameraCollection>();
         builder.Bind<RenderingStage>();
     }
