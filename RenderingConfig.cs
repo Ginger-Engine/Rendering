@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using System.Numerics;
+﻿using System.Numerics;
 using Engine.Rendering.Ui;
 using Engine.Rendering.Utils;
 

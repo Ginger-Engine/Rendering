@@ -21,6 +21,7 @@ public class RenderingBundle : IBundle
         builder.Bind<LayerManager>();
         builder.Bind<ITypeResolver<Layer>>().From<LayerLoader>();
         builder.Bind<ITypeResolver<Color>>().From<ColorTypeResolver>();
+        builder.Bind<ITypeResolver<SizeExpression>>().From<SizeExpressionTypeResolver>();
         builder.Bind<CameraCollection>();
         builder.Bind<RenderingStage>();
     }
