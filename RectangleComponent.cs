@@ -6,5 +6,5 @@ namespace Engine.Rendering;
 public struct RectangleComponent : IComponent
 {
     public SizeExpression Size;
-    internal Vector2 SizeCache;
+    public Vector2 SizeCache;
 } 
